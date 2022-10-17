@@ -1,15 +1,21 @@
-﻿
-#include "MyMath.h"
+﻿#include "MyMath.h"
 
-double MyMath::average(std::vector<double> vec)
+double MyMath::average(const std::vector<double> &vec)
 {
+
+	if (vec.empty()) {
+		throw std::invalid_argument("Vector empty!");
+	}
 	return sum(vec) / vec.size();
 }
 
-double MyMath::max(std::vector<double> vec)
+double MyMath::max(const std::vector<double> &vec)
 {
-	double maxValue = vec.at(0);
-	for (const auto el : vec) {
+	if (vec.empty()) {
+		throw std::invalid_argument("Vector empty!");
+	}
+	auto maxValue = vec.at(0);
+	for (const auto& el : vec) {
 		if (el > maxValue) {
 			maxValue = el;
 		}
@@ -17,10 +23,13 @@ double MyMath::max(std::vector<double> vec)
 	return maxValue;
 }
 
-double MyMath::min(std::vector<double> vec)
+double MyMath::min(const std::vector<double> &vec)
 {
-	double minValue = vec.at(0);
-	for (const auto el : vec) {
+	if (vec.empty()) {
+		throw std::invalid_argument("Vector empty!");
+	}
+	auto minValue = vec.at(0);
+	for (const auto& el : vec) {
 		if (el < minValue) {
 			minValue = el;
 		}
@@ -28,10 +37,13 @@ double MyMath::min(std::vector<double> vec)
 	return minValue;
 }
 
-double MyMath::sum(std::vector<double> vec)
+double MyMath::sum(const std::vector<double> &vec)
 {
+	if (vec.empty()) {
+		throw std::invalid_argument("Vector empty!");
+	}
 	double s = 0;
-	for (const auto el : vec) {
+	for (const auto& el : vec) {
 		s += el;
 	}
 	return s;

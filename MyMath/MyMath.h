@@ -1,10 +1,12 @@
 #pragma once
 #include <vector>
-static class MyMath
+#include <stdexcept>
+
+class MyMath
 {
 public:
-	static double average(std::vector<double>);
-	static double max(std::vector<double>);
-	static double min(std::vector<double>);
-	static double sum(std::vector<double>);
+	static double average(const std::vector<double> &vec);
+	static double max(const std::vector<double> &vec);
+	static double min(const std::vector<double> &vec);
+	static double sum(const std::vector<double> &vec);
 };
