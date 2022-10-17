@@ -1,14 +1,24 @@
 #include <iostream>
 #include <string>
 #include "MyMath.h"
+#include <signal.h>
 
+bool signalCode = true;
+
+void changeSignalCode(int signum) {
+	signalCode = false;
+}
+
+// создать глобальную переменную и через колбек ее менять
 int main() {
 	std::vector<double> vec;
 	std::cout << "Write value (for stop enter \"s\"):\n";
 	std::string temp;
-	while (true) {
+	signal(SIGINT, changeSignalCode);
+	while (signalCode) {
 		std::cin >> temp;
-		if (temp == "s" || temp == "S" || std::cin.eof()) {
+		if (temp == "s" || temp == "S" || std::cin.eof()) 
+		{
 			break;
 		}
 		else {
