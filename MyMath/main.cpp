@@ -8,7 +8,7 @@ int main() {
 	std::string temp;
 	while (true) {
 		std::cin >> temp;
-		if (temp == "s" || temp == "S") {
+		if (temp == "s" || temp == "S" || std::cin.eof()) {
 			break;
 		}
 		else {
